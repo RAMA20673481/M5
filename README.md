@@ -179,28 +179,32 @@ int main()
     char str[100];
     int rows;
     printf("Enter a string: ");
-    scanf("%s", str);
+    fgets(str, sizeof(str), stdin);
+    str[strcspn(str, "\n")] = '\0';
     printf("Enter number of rows: ");
     scanf("%d", &rows);
-    int len = strlen(str);
-    int index = 0;
+    int length = strlen(str);  
     for (int i = 1; i <= rows; i++) 
-    {      
-        for (int j = 1; j <= i; j++) 
-        {      
-            printf("%c ", str[index % len]); 
-            index++;
+    {
+       
+        for (int j = 1; j <= rows - i; j++) 
+        {
+            printf(" ");
+        }
+        for (int j = 0; j < i; j++) 
+        {
+            printf("%c ", str[j % length]);  
         }
         printf("\n");
     }
-
     return 0;
 }
 ```
 
  ## OUTPUT
 
- ![Screenshot 2025-05-23 135534](https://github.com/user-attachments/assets/3028667d-5fe2-4b47-97d8-c89923b4bd33)
+ ![Screenshot 2025-05-30 130330](https://github.com/user-attachments/assets/aa16f6d1-d8a6-4285-8740-a1170b8e0091)
+
 
 
 ## RESULT
